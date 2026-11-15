@@ -63,6 +63,25 @@ mm init show
 
 Environment variables: `MM_MNEMONIC`, `MM_PASSWORD` (bring your own wallet encryption).
 
+Examples:
+
+```bash
+# Interactive: prompts for wallet mode and trading mode
+mm init
+
+# Server wallet in Beast Mode
+mm init --wallet server-wallet --mode beast
+
+# Bring your own wallet
+export MM_MNEMONIC="word1 word2 ..."
+mm init --wallet byok --mode guard
+
+# Bring your own wallet, with the mnemonic encrypted at rest
+export MM_MNEMONIC="word1 word2 ..."
+export MM_PASSWORD="mypassword"
+mm init --wallet byok --mode guard
+```
+
 If the account already has server wallets, `mm init` syncs them and loads each wallet's trading
 mode from the server.
 In a non-interactive session with several wallets, it selects the first one.
